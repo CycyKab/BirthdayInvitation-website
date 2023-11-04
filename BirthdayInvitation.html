@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Birthday Invitation</title>
+  <link href="https://fonts.cdnfonts.com/css/miama" rel="stylesheet">
+  <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Tangerine">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="main-card">
+    <div class="text-content">
+      <img class="background-image" src="https://drevio.b-cdn.net/wp-content/uploads/2022/02/8-Watercolor-Botanical-Greenery-Wedding-Invitation-Templates.jpg" alt="Background Image">
+      <div class="text-container">
+        <p class="fm">YOU ARE</p>
+        <p class="fm">INVITED TO MY</p>
+        <span class="birthday">
+          <span class="inner-birthday">BIRTHDAY</span>
+        </span>
+        <p class="big2">Party</p>
+        <p>Please join us for a celebration honoring</p>
+        <p class="big3"><span class="name">[Name]</span></p>
+        <p><span class="Day"></span> | <span class="Month"></span> | <span class="Date"></span> | <span class="Year"></span></p>
+        <p>At <span class="start-time"></span> - <span class="end-time"></span>.</p>
+        <p>Place</p>
+        <p><span class="location"></span></p>
+        <p>THEME: <span class="theme"></span>.</p>
+
+        <button class="huge-btn" onclick="openRSVPModal()">RSVP</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RSVP Modal -->
+  <div id="rsvpModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeRSVPModal()">&times;</span>
+      <h2>RSVP</h2>
+      <p>Please enter your name:</p>
+      <input type="text" id="guestName" placeholder="Your Name">
+      <button onclick="submitRSVP()">Submit</button>
+    </div>
+  </div>
+
+  <script>
+    function openRSVPModal() {
+      const modal = document.getElementById('rsvpModal');
+      modal.style.display = 'block';
+    }
+
+    function closeRSVPModal() {
+      const modal = document.getElementById('rsvpModal');
+      modal.style.display = 'none';
+    }
+
+    function submitRSVP() {
+      const guestName = document.getElementById('guestName').value;
+      if (guestName) {
+        // Send the RSVP data to the owner or store it as needed
+        alert(`Thank you, ${guestName}, for your RSVP!`);
+        closeRSVPModal();
+      } else {
+        alert('Please enter your name before submitting.');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      // Extract query parameters from the URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const name = urlParams.get('name');
+      const day = urlParams.get('day');
+      const month = urlParams.get('month');
+      const date = urlParams.get('date');
+      const year = urlParams.get('year');
+      const startTime = urlParams.get('start-time');
+      const endTime = urlParams.get('end-time');
+      const location = urlParams.get('location');
+      const theme = urlParams.get('theme');
+  
+      
+      document.querySelector('.name').textContent = name;
+      document.querySelector('.Day').textContent = day;
+      document.querySelector('.Month').textContent = month;
+      document.querySelector('.Date').textContent = date;
+      document.querySelector('.Year').textContent = year;
+      document.querySelector('.start-time').textContent = startTime;
+      document.querySelector('.end-time').textContent = endTime;
+      document.querySelector('.location').textContent = location;
+      document.querySelector('.theme').textContent = theme;
+    });
+  </script>
+</body>
+</html>

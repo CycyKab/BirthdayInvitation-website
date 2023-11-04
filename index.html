@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Birthday Invitation Form</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+    body {
+      background-color: transparent;
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      color: #000;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .main-card {
+      background-color: transparent;
+      width: 100%;
+      max-width: 800px;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .text-content {
+      width: 100%;
+      text-align: center;
+    }
+
+    .background-image {
+      width: 100%;
+      max-width: 800px;
+      border-radius: 1px;
+      box-shadow: 0 0 50px #00eeff;
+      overflow: hidden;
+      position: relative;
+      background-position: center center;
+    }
+
+    @keyframes animate {
+      100% {
+        filter: hue-rotate(360deg);
+      }
+    }
+    .background-image img {
+      animation: rotateImage 10s linear;
+    }
+
+    @keyframes rotateImage {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .blur-box {
+      background: rgba(247, 230, 183, 0.8);
+      padding: 90px;
+      width: 30%; /* Make the form smaller */
+      height: 55%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      position: absolute; /* Position the form absolutely */
+      top: 50%;
+      left: 50%;
+      transform-origin: center;
+      transform: translate(-50%, -50%); /* Center the form */
+    }
+    #birthdayInvitationForm {
+      text-align: left;
+      margin-top: -15px;
+
+    }
+
+    .white-border {
+      border: 2px solid white;
+      padding: 5px;
+      border-radius: 5px;
+      margin: 5px;
+      width: 100%;
+    }
+
+    .submit-button {
+      width: 100%;
+      height: 40px;
+      background: #463206;
+      box-shadow: 0 0 10px #806a2e;
+      font-size: 16px;
+      color: #ffffff;
+      font-weight: 500;
+      cursor: pointer;
+      border-radius: 15px;
+      border: none;
+      outline: none;
+      margin-top: 20px;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .submit-button:hover {
+      background-color: #5b450c;
+      transform: scale(1.1);
+    }
+
+    .form-title {
+      font-size: 24px;
+      color: #000;
+      margin-bottom: 20px;
+      animation: scaleTitle 1s ease-in-out infinite alternate;
+    }
+
+    @keyframes scaleTitle {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.1);
+      }
+    }
+
+    /* Additional CSS to adjust layout */
+    .form-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .form-section > div {
+      width: 45%; /* Adjust the width to your preference */
+    }
+
+  </style>
+</head>
+<body>
+  <div class="main-card">
+    <div class="text-content">
+      <div class="background-image">
+        <img src="https://i.pinimg.com/1200x/36/b5/60/36b560b0fdc1a761797e39590aad4a21.jpg" alt="Background Image">
+        <div class="blur-box">
+          <h1 class="form-title">Birthday Invitation Form</h1>
+          <form id="birthdayInvitationForm">
+            <div class="form-section">
+              <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" required class="white-border">
+              </div>
+            </div>
+
+            <label for="day">Day:</label>
+            <input type="text" id="day" required class="white-border"><br>
+
+            <label for="month">Month:</label>
+            <input type="text" id="month" required class="white-border"><br>
+
+            <label for="date">Date:</label>
+            <input type="text" id="date" required class="white-border"><br>
+
+            <label for="year">Year:</label>
+            <input type="text" id="year" required class="white-border"><br>
+
+
+            <div class="form-section">
+              <div>
+                <label for="startTime">Start Time:</label>
+                <input type="text" id="startTime" required class="white-border">
+              </div>
+              <div>
+                <label for="endTime">End Time:</label>
+                <input type="text" id="endTime" required class="white-border">
+              </div>
+            </div>
+
+            <label for="location">Location:</label>
+            <input type="text" id="location" required class="white-border"><br>
+
+            <label for="theme">Theme:</label>
+            <input type="text" id="theme" required class="white-border"><br>
+
+
+            <input type="submit" value="Submit" class="submit-button">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.getElementById('birthdayInvitationForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+  
+
+      const name = document.getElementById('name').value;
+      const day = document.getElementById('day').value;
+      const month = document.getElementById('month').value;
+      const date = document.getElementById('date').value;
+      const year = document.getElementById('year').value;
+      const startTime = document.getElementById('startTime').value;
+      const endTime = document.getElementById('endTime').value;
+      const location = document.getElementById('location').value;
+      const theme = document.getElementById('theme').value;
+  
+
+      const queryString = `name=${name}&day=${day}&month=${month}&date=${date}&year=${year}&start-time=${startTime}&end-time=${endTime}&location=${location}&theme=${theme}`;
+
+      window.location.href = `BirthdayInvitation.html?${queryString}`;
+    });
+  </script>
+</body>
+</html>
